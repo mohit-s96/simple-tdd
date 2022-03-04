@@ -31,4 +31,8 @@ describe("verifies Add function is working accordingly", () => {
   test("comma and newline delimiters => '1,2\\n3' returns 6", () => {
     expect(Add("1,2\n3")).toBe(6);
   });
+
+  test("2 contiguous delimiters => '1,\\n' throws invalid input", () => {
+    expect(() => Add("1,\n")).toThrowError(Error("invalid input"));
+  });
 });
