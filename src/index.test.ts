@@ -47,4 +47,14 @@ describe("verifies Add function is working accordingly", () => {
   test("custom delimiter without newline => '//;1;2;3' throws invalid input", () => {
     expect(() => Add("//;1;2;3")).toThrowError(Error("invalid input"));
   });
+
+  test("negative number => '1,2,3,4\\n-5' throws error", () => {
+    const error = Error("negatives not allowed - -5");
+    expect(() => Add("1,2,3,4\n-5")).toThrowError(error);
+  });
+
+  test("negative numbers => '1,2,-3,4\\n-5,-7' throws error", () => {
+    const error = Error("negatives not allowed - -3,-5,-7");
+    expect(() => Add("1,2,-3,4\n-5,-7")).toThrowError(error);
+  });
 });
