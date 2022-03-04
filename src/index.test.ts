@@ -27,4 +27,8 @@ describe("verifies Add function is working accordingly", () => {
   test("an invalid number 'f' => '1,2,f' throws invalid input", () => {
     expect(() => Add("1,2,f")).toThrowError(Error("invalid input"));
   });
+
+  test("comma and newline delimiters => '1,2\\n3' returns 6", () => {
+    expect(Add("1,2\n3")).toBe(6);
+  });
 });
