@@ -35,4 +35,12 @@ describe("verifies Add function is working accordingly", () => {
   test("2 contiguous delimiters => '1,\\n' throws invalid input", () => {
     expect(() => Add("1,\n")).toThrowError(Error("invalid input"));
   });
+
+  test("custom delimiter => '//;\\n1;2;3' returns 6", () => {
+    expect(Add("//;\n1;2;3")).toBe(6);
+  });
+
+  test("custom delimiter with backwards compat => '//;\\n1;2;3\\n4,5' returns 15", () => {
+    expect(Add("//;\n1;2;3\n4,5")).toBe(15);
+  });
 });
