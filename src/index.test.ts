@@ -14,4 +14,12 @@ describe("verifies Add function is working accordingly", () => {
   test("emty string returns zero", () => {
     expect(Add("")).toBe(0);
   });
+
+  test("'1,2' returns 3", () => {
+    expect(Add("1,2")).toBe(3);
+  });
+
+  test("comma delimiter => '1,2,3' returns 6", () => {
+    expect(Add("1,2,3")).toBe(6);
+  });
 });
