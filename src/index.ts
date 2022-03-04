@@ -15,6 +15,12 @@ function extractDelimiter(str: string): DelimiterData {
     const validDelimIndex = 2;
     const delim = str[validDelimIndex];
 
+    const newline = str[validDelimIndex + 1];
+
+    if (!delim || newline !== "\n") {
+      throw Error("invalid input");
+    }
+
     const filteredString = str.slice(validDelimIndex + 2);
     return { delimiter: new RegExp(`[${delim},\n]`), str: filteredString };
   } else {

@@ -43,4 +43,8 @@ describe("verifies Add function is working accordingly", () => {
   test("custom delimiter with backwards compat => '//;\\n1;2;3\\n4,5' returns 15", () => {
     expect(Add("//;\n1;2;3\n4,5")).toBe(15);
   });
+
+  test("custom delimiter without newline => '//;1;2;3' throws invalid input", () => {
+    expect(() => Add("//;1;2;3")).toThrowError(Error("invalid input"));
+  });
 });
